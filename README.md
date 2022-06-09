@@ -1,27 +1,39 @@
-# BolsiyoTest
+# Bolsiyo Technology
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+Es un proyecto creado en Angular version 13.1.2 cuyo objetivo principal es el de crear un visualizador de imagenes donde se pueda establecer conocimiento adquirido sobre diseño, usabilidad, navegación, responsive y estados de una aplicación SPA.
 
-## Development server
+Puedes visualizar el proyecto funcionando en: https://
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Estructura del proyecto
+~~~
 
-## Code scaffolding
+|- <src>
+|     |----- <components>
+|     |       |-------- <filter> // Contiene el componente de filtrado, este comparte los resultados al resto de la aplicación.
+|     |       |-------- <hero> // Contiene el componente que no solo muestra la información inicial sino tambien el detalle de la imagen seleccionada.
+|     |       |-------- <photos-list> // Trae de manera autonoma la lista de fotos y recibe las filtradas por el modulo <filter>.
+|     |
+|     |----- <core>
+|     |       |-------- <main.reducer> // Corresponde al reductor de estado aplicado para el paso y alamacenamiento de datos entre los componentes.
+|     |       |-------- <main.service> // Contiene las peticiones a la base de datos y funciones reutilizables. 
+|     |
+|     |----- <pages> // Contiene el modulo y componentes ordenados para permitir el crecimiento de la aplicación.
+|     |       |-------- <home> // Es el componente que contiene la pagina principal o landing page de la aplicación.
+|     |
+|     |----- <shared> // Componentes compartidos, pensados para el crecimiento de la aplicación.
+|     |       |-------- <footer>
+|     |       |-------- <navbar>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+~~~
+
+## Lanzamiento del servidor
+
+Corre `ng serve` para crear un servidor local. Usa la url `http://localhost:4200/` para visualizar los cambios aplicables en tiempo real.
+
+## Uso de Angular CLI
+
+Escribe en consola `ng generate component my-component` para generar un nuevo componente. También puedes crear mas elementos con Angular CLI `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Corre `ng build` para construir el proyecto. El resultado se encuentra ubicado en la carpeta `dist/`.
