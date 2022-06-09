@@ -2,7 +2,7 @@
 
 Es un proyecto creado en Angular version 13.1.2 cuyo objetivo principal es el de crear un visualizador de imagenes donde se pueda establecer conocimiento adquirido sobre diseño, usabilidad, navegación, responsive y estados de una aplicación SPA.
 
-Puedes visualizar el proyecto funcionando en: https://
+Puedes visualizar el proyecto funcionando en: https://bolsiyotechnology.netlify.app/
 
 ## Estructura del proyecto
 ~~~
