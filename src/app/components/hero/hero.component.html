@@ -1,0 +1,85 @@
+<div
+  class="position-relative vh-100 w-100 p-3 p-md-5 text-start text-white bg-dark"
+  [ngClass]="{
+    'bg-image-selected': dataPhoto.id,
+    'bg-image-logo': !dataPhoto.id
+  }"
+  [ngStyle]="{
+    'background-image': 'url(' + dataPhoto.largeImageURL + ')',
+    'background-blend-mode': lightsOff ? 'overlay' : 'unset'
+  }"
+>
+  <div class="float-end" *ngIf="dataPhoto.id">
+    <div
+      class="circle-light"
+      [ngClass]="{
+        'lights-off': lightsOff,
+        'lights-on': !lightsOff
+      }"
+      (click)="lightsOff = !lightsOff"
+    >
+      <fa-icon class="fs-3 m-auto" [icon]="fa_lightbulb"></fa-icon>
+    </div>
+  </div>
+
+  <div *ngIf="lightsOff" class="p-lg-5 mx-auto my-5 w-100 float-md-start">
+    <div class="d-md-flex d-block text-center text-md-start">
+      <img
+        [ngClass]="{ 'user-image': dataPhoto.id }"
+        [src]="dataPhoto.userImageURL"
+        width="90px"
+        height="100px"
+        alt=""
+      />
+      <div class="text-center text-md-start my-auto">
+        <h1 class="mb-1 custom-fs-1">{{ dataPhoto.user }}</h1>
+        <h3 *ngIf="!dataPhoto.id">Technology</h3>
+        <h6 *ngIf="dataPhoto.id">
+          Ha contribuido con {{ dataPhoto.collections }} fotografía{{
+            dataPhoto.collections == 1 ? "" : "s"
+          }}
+        </h6>
+      </div>
+    </div>
+
+    <div
+      *ngIf="dataPhoto.id"
+      class="ms-md-5 text-center text-md-start mt-4 d-flex justify-content-center justify-content-md-start"
+    >
+      <h5>
+        <span class="badge bg-primary mx-1" *ngFor="let tag of tags">{{
+          tag
+        }}</span>
+      </h5>
+    </div>
+
+    <div
+      *ngIf="dataPhoto.id"
+      class="ms-md-5 mt-2 d-flex justify-content-center justify-content-md-start"
+    >
+      <h4 class="mx-2">
+        <fa-icon [icon]="fa_eye"></fa-icon> {{ dataPhoto.views }}
+      </h4>
+      <h4 class="mx-2">
+        <fa-icon [icon]="fa_like"></fa-icon> {{ dataPhoto.likes }}
+      </h4>
+    </div>
+
+    <div *ngIf="!dataPhoto.id" class="mt-4">
+      <p class="lead fw-normal">
+        Te damos la bienvenida al mejor catalogo tecnológico que encontrarás en
+        la web. <br />
+        Busca, filtra y recorre cada una de nuestras mejores imágenes
+        disponibles.
+      </p>
+    </div>
+  </div>
+
+  <div class="container-mouse">
+    <fa-icon
+      class="fs-2 mx-auto mouse-icon"
+      [icon]="fa_computer_mouse"
+      (click)="goToElement()"
+    ></fa-icon>
+  </div>
+</div>
